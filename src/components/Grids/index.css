@@ -1,0 +1,10 @@
+.grid__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--grid-width));
+  gap: var(--grid-gap);
+  justify-content: var(--grid-justify-content);
+  align-items: var(--grid-align-items);
+}
+.grid__container > * {
+  height: var(--grid-height);
+}
