@@ -1,5 +1,5 @@
 import { Button, TextField } from '@material-ui/core'
-import Header from '../../components/Header/Header'
+import Header from '@/components/Header/Header'
 import { Search as SearchIcon } from '@ricons/ionicons5'
 /*
  * @Author: Mr.Mao

@@ -1,13 +1,13 @@
 /*
  * @Author: Mr.Mao
  * @Date: 2021-08-30 17:52:22
- * @LastEditTime: 2021-08-30 23:58:46
+ * @LastEditTime: 2021-08-31 00:25:30
  * @Description:
  * @LastEditors: Mr.Mao
  * @autograph: 任何一个傻子都能写出让电脑能懂的代码，而只有好的程序员可以写出让人能看懂的代码
  */
 
-import Header from '../../components/Header/Header'
+import Header from '@/components/Header/Header'
 import { Button, Card, TextField } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import {
@@ -16,8 +16,8 @@ import {
   LoadingTextSkelets
 } from './LoadingSkelets'
 import { useEffect, useState } from 'react'
-import { reqInterview } from '../../api'
-import Grids from '../../components/Grids/Grids'
+import { reqInterview } from '@/api'
+import Grids from '@/components/Grids/Grids'
 import { Search as SearchIcon } from '@ricons/ionicons5'
 import ReactECharts from 'echarts-for-react'
 
