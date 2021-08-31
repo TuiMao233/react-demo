@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.extends.json",
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -18,13 +19,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+    "jsx": "react-jsx"
   },
   "include": [
     "src"
