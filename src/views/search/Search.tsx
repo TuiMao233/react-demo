@@ -1,7 +1,7 @@
 /*
  * @Author: Mr.Mao
  * @Date: 2021-08-30 17:52:22
- * @LastEditTime: 2021-08-31 15:32:05
+ * @LastEditTime: 2021-08-31 16:08:34
  * @Description:
  * @LastEditors: Mr.Mao<https://github.com/TuiMao233>
  * @autograph: 任何一个傻子都能写出让电脑能懂的代码，而只有好的程序员可以写出让人能看懂的代码
@@ -142,7 +142,7 @@ function Home() {
   }
 
   return (
-    <>
+    <div className="h-full flex flex-col">
       <Header
         right={
           <div className="flex gap-20 items-center">
@@ -162,57 +162,62 @@ function Home() {
           </div>
         }
       />
-      <div className="py-36 px-36 lg:w-1000 mx-auto flex flex-col gap-28">
-        <div>Recent product launches</div>
+      {/* py-36 px-36  */}
+      <div className="flex-1 relative">
+        <div className="absolute inset-0 overflow-y-auto">
+          <div className="lg:w-1000 mx-auto flex flex-col gap-28 p-20">
+            <div>Recent product launches</div>
 
-        <Grid container spacing={3}>
-          {isLoading ? (
-            LoadingRectSkelets
-          ) : (
-            <Grid item xs={12} lg={6}>
-              <ReactECharts className="xl:h-224" option={getBarOptions()} />
+            <Grid container spacing={3}>
+              {isLoading ? (
+                LoadingRectSkelets
+              ) : (
+                <Grid item xs={12} lg={6}>
+                  <ReactECharts className="xl:h-224" option={getBarOptions()} />
+                </Grid>
+              )}
             </Grid>
-          )}
-        </Grid>
 
-        <div>Related product trends</div>
+            <div>Related product trends</div>
 
-        <Grids size={['200px', 'auto']} gap={10}>
-          {isLoading
-            ? LoadingTextSkelets
-            : interviews.product_trends?.flatMap((value, index) =>
-                getLineOptions(value).map((item, index2) => {
-                  return (
-                    <Card key={index + '' + index2} variant="outlined">
-                      <ReactECharts className="h-192" option={item} />
-                      <div className="py-10 text-center text-xs text-gray-500">
-                        May 2018 - May 2020
+            <Grids size={['200px', 'auto']} gap={10}>
+              {isLoading
+                ? LoadingTextSkelets
+                : interviews.product_trends?.flatMap((value, index) =>
+                    getLineOptions(value).map((item, index2) => {
+                      return (
+                        <Card key={index + '' + index2} variant="outlined">
+                          <ReactECharts className="h-192" option={item} />
+                          <div className="py-10 text-center text-xs text-gray-500">
+                            May 2018 - May 2020
+                          </div>
+                        </Card>
+                      )
+                    })
+                  )}
+            </Grids>
+
+            <div>Related new products published in the last 7 days</div>
+
+            <Grids size={['200px', 'auto']} gap={10}>
+              {isLoading
+                ? LoadingArticleSkelets
+                : interviews.products?.flatMap((value, index) => (
+                    <Card variant="outlined" key={index}>
+                      <img className="h-192 w-full object-cover" src={value.image} />
+                      <div className="border-top border-gray-300 py-20 px-10 text-sm flex flex-col gap-8">
+                        <div className="text-gray-500">Published 4 day ogo</div>
+                        <div>{value.title}</div>
+                        <div className="text-gray-500">{value.price}$</div>
+                        <div className="text-gray-500">{value.store_domain}</div>
                       </div>
                     </Card>
-                  )
-                })
-              )}
-        </Grids>
-
-        <div>Related new products published in the last 7 days</div>
-
-        <Grids size={['200px', 'auto']} gap={10}>
-          {isLoading
-            ? LoadingArticleSkelets
-            : interviews.products?.flatMap((value, index) => (
-                <Card variant="outlined" key={index}>
-                  <img className="h-192 w-full object-cover" src={value.image} />
-                  <div className="border-top border-gray-300 py-20 px-10 text-sm flex flex-col gap-8">
-                    <div className="text-gray-500">Published 4 day ogo</div>
-                    <div>{value.title}</div>
-                    <div className="text-gray-500">{value.price}$</div>
-                    <div className="text-gray-500">{value.store_domain}</div>
-                  </div>
-                </Card>
-              ))}
-        </Grids>
+                  ))}
+            </Grids>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 
