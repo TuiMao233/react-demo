@@ -10,6 +10,9 @@
 - [@tuimao/tailwind](https://github.com/TuiMao233/tuimao-scope/tree/master/packages/_tailwind#readme)
 - [@tuimao/core](https://github.com/TuiMao233/tuimao-scope)
 
+至于 redux ，没有什么共用数据就不用了。
+可用脚本参考下方命令。
+
 ## Available Scripts
 
 In the project directory, you can run:
